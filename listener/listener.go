@@ -1,19 +1,18 @@
 package listener
 
 import (
+	"btolsen131/CaliGo/forwarder"
 	"bufio"
 	"fmt"
 	"net"
-
-	"golang.org/x/text/message"
 )
 
 var MessageChannel chan string
 
 func Listen(ports []int, destinations []string) {
-	MessageChannel = make (chan string)
+	MessageChannel = make(chan string)
 
-	for _, destination := range destinations{
+	for _, destination := range destinations {
 		go handleDestination(destination)
 	}
 
@@ -60,8 +59,8 @@ func handleConnection(conn net.Conn) {
 	}
 }
 
-func handleDestination (destination string){
+func handleDestination(destination string) {
 	for message := range MessageChannel {
-		ForwardMessage(destination, message)
+		forwarder.ForwardMessage(destination, message)
 	}
 }

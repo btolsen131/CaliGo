@@ -12,6 +12,6 @@ func main(){
   fmt.Println("Listen Ports:",cfg.ListenPorts)
   fmt.Println("Forward Destinations:", cfg.ForwardDest)
 
-  listener.Listen(cfg.ListenPorts)
+  listener.Listen(cfg.ListenPorts,cfg.ForwardDest)
 
 }
