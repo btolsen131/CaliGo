@@ -14,4 +14,6 @@ func main(){
 
   listener.Listen(cfg.ListenPorts,cfg.ForwardDest)
 
+  select {}
+
 }
