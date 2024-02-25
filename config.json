@@ -1,0 +1,5 @@
+{
+  "ListenPorts": [8080, 9090],
+  "ForwardDest": ["127.0.0.1:9000", "example.com:8000"]
+}
+
