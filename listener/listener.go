@@ -61,6 +61,9 @@ func handleConnection(conn net.Conn) {
 
 func handleDestination(destination string) {
 	for message := range MessageChannel {
-		forwarder.ForwardMessage(destination, message)
+		err := forwarder.ForwardMessage(destination, message)
+		if err != nil{
+			fmt.Println("Error forwarding message:", err)
+		}
 	}
 }
